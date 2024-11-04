@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /basic-crud/
+
+# Jika file/directory tidak ada, lanjutkan ke rules berikutnya
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite untuk rooms/get/{id}
+RewriteRule ^api/rooms/get/([0-9]+)/?$ api/rooms/get/index.php?id=$1 [QSA,L] 
